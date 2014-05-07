@@ -97,8 +97,13 @@ Screenshot.prototype.capture = function(fn) {
     }
   }
 
+  var path = __dirname + '/script/render.js';
+
+  if(/^win/.test(process.platform))
+    path = '"'+path+'"';
+
   var args = [
-    __dirname + '/script/render.js', this.url,
+    path, this.url,
     this._width, this._height, this._timeout, this._format
   ];
 
